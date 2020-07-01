@@ -61,18 +61,6 @@ class Min_Max_For_Woocommerce_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Min_Max_For_Woocommerce_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Min_Max_For_Woocommerce_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/min-max-for-woocommerce-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -83,18 +71,6 @@ class Min_Max_For_Woocommerce_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Min_Max_For_Woocommerce_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Min_Max_For_Woocommerce_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/min-max-for-woocommerce-admin.js', array( 'jquery' ), $this->version, false );
 
