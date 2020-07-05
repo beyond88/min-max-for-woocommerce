@@ -94,7 +94,7 @@ class Min_Max_For_Woocommerce_Public {
 		return $args;
 	}
 
-	public function wc_mmax_custom_add_to_cart( $args,$product ) {
+	public function wc_mmax_custom_add_to_cart( $args, $product ) {
 
 		$orderQTY = $_POST['quantity'];
 		$mmaxEnable = get_post_meta($product, '_mmfwc_prd_opt_enable', true);
@@ -136,19 +136,25 @@ class Min_Max_For_Woocommerce_Public {
 	}
 
 	public function _wcmmax_add2cart( $link ) {
-		global $product;
-		$product_id = $product->id;
-		$product_sku = $product->get_sku();
-		$product_type = $product->get_type();
-		$qtylink = ''; 
-			$mmaxEnable = get_post_meta($product_id, '_wc_mmax_prd_opt_enable', true);
-			$minQty     = get_post_meta($product_id, '_wc_mmax_min', true);
 		
-		if($product_type !='simple' && $mmaxEnable == 1){
+		global $product;
+		$product_id 	= $product->id;
+		$product_sku 	= $product->get_sku();
+		$product_type 	= $product->get_type();
+		$qtylink 		= ''; 
+		$mmaxEnable 	= get_post_meta( $product_id, '_wc_mmax_prd_opt_enable', true );
+		$minQty     	= get_post_meta( $product_id, '_wc_mmax_min', true );
+		
+		if( $product_type !='simple' && $mmaxEnable == 1 ) {
 			$qtylink = '&quantity='.$minQty;
 		} 
+
 		$ajax_cart_en = 'yes' === get_option( 'woocommerce_enable_ajax_add_to_cart' );
-			if ($ajax_cart_en &&  $mmaxEnable == 0) { $ajax_class = 'ajax_add_to_cart'; }
+		
+		if ($ajax_cart_en &&  $mmaxEnable == 0) { 
+			$ajax_class = 'ajax_add_to_cart'; 
+		}
+		
 		$link = sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="button %s product_type_%s %s">%s</a>',
 				esc_url( $product->add_to_cart_url().$qtylink ),
 				esc_attr( $product->id ),
@@ -160,6 +166,7 @@ class Min_Max_For_Woocommerce_Public {
 				esc_html( $product->add_to_cart_text() )
 			);
 		return $link;
+		
 	}	
 
 }
