@@ -59,7 +59,7 @@ class Min_Max_For_Woocommerce_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function mmfwc_enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/min-max-for-woocommerce-public.css', array(), $this->version, 'all' );
 	}
 
@@ -68,12 +68,18 @@ class Min_Max_For_Woocommerce_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function mmfwc_enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/min-max-for-woocommerce-public.js', array( 'jquery' ), $this->version, false );
 	}
 
-
-	public function wc_mmax_quantity_input_args( $args, $product ) {
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	array, object		
+	 * @return 	void
+	*/		
+	public function mmfwc_quantity_input_args( $args, $product ) {
 		
 		if( function_exists('icl_object_id') ) {
 			$default_language = wpml_get_default_language();
@@ -94,17 +100,25 @@ class Min_Max_For_Woocommerce_Public {
 		return $args;
 	}
 
-	public function wc_mmax_custom_add_to_cart( $args, $product ) {
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	array, object		
+	 * @return 	void
+	*/		
+	public function mmfwc_custom_add_to_cart( $args, $product ) {
 
-		$orderQTY = $_POST['quantity'];
-		$mmaxEnable = get_post_meta($product, '_mmfwc_prd_opt_enable', true);
-		$minQty     = get_post_meta($product, '_mmfwc_min', true);
-		$maxQty     = get_post_meta($product, '_mmfwc_max', true);
-		$cartQty =  wc_mmax_woo_in_cart($product);
-		if(get_option('_wcmmax_options_option_name') != NULL && get_option('_wcmmax_options_option_name') !=''){
-			$maxQTYMsg = get_option('_wcmmax_options_option_name');
+		$orderQTY   = sanitize_text_field( $_POST['quantity'] );
+		$mmaxEnable = get_post_meta( $product, '_mmfwc_prd_opt_enable', true );
+		$minQty     = get_post_meta( $product, '_mmfwc_min', true );
+		$maxQty     = get_post_meta( $product, '_mmfwc_max', true );
+		$cartQty 	= $this->wc_mmax_woo_in_cart( $product ); 
+
+		if( get_option('mmfwc_options_option_name') != NULL && get_option('mmfwc_options_option_name') !='' ) {
+			$maxQTYMsg = get_option('mmfwc_options_option_name');
 		}else {
-			$maxQTYMsg = 'You have already added the maximum Quantity for the product for the current purchase';
+			$maxQTYMsg = esc_html__( 'You have already added the maximum Quantity for the product for the current purchase', 'min-max-for-woocommerce' );
 		}
 
 		if( $maxQty < $cartQty && $mmaxEnable == 1 ) {
@@ -113,37 +127,50 @@ class Min_Max_For_Woocommerce_Public {
 		}
 
 		if( ($orderQTY + $cartQty)  < $minQty && $mmaxEnable == 1 ) {
-			wc_add_notice(__( 'You have ordered '.$orderQTY.'  which is less than the allowed Minimum Quantity '.$minQty.'','min-max-for-woocommerce'),'error' );
+			wc_add_notice( __( 'You have ordered '.$orderQTY.' which is less than the allowed Minimum Quantity '.$minQty.'', 'min-max-for-woocommerce' ), 'error' );
 			exit( wp_redirect( get_permalink($product) ) );
 		}
 
 	}
 
-	public function wc_mmax_woo_in_cart( $product_id ) {
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	int		
+	 * @return 	void
+	*/	
+	public function mmfwc_woo_in_cart( $product_id ) {
+
 		global $woocommerce;
 		foreach($woocommerce->cart->get_cart() as $key => $val ) {
 		
 			$_product = $val['data'];
-			if($product_id == $_product->get_id()) {
-
-			
-			return  $val['quantity'];
-		
+			if( $product_id == $_product->get_id() ) {
+				return  $val['quantity'];
 			}
 		}
 	
 		return 0;
+
 	}
 
-	public function _wcmmax_add2cart( $link ) {
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	string		
+	 * @return 	void
+	*/	
+	public function mmfwc_add_to_cart( $link ) {
 		
 		global $product;
 		$product_id 	= $product->id;
 		$product_sku 	= $product->get_sku();
 		$product_type 	= $product->get_type();
 		$qtylink 		= ''; 
-		$mmaxEnable 	= get_post_meta( $product_id, '_wc_mmax_prd_opt_enable', true );
-		$minQty     	= get_post_meta( $product_id, '_wc_mmax_min', true );
+		$mmaxEnable 	= get_post_meta( $product_id, '_mmfwc_prd_opt_enable', true );
+		$minQty     	= get_post_meta( $product_id, '_mmfwc_min', true );
 		
 		if( $product_type !='simple' && $mmaxEnable == 1 ) {
 			$qtylink = '&quantity='.$minQty;

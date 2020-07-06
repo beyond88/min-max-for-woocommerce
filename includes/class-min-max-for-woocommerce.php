@@ -158,6 +158,8 @@ class Min_Max_For_Woocommerce {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'mmfwc_enqueue_scripts' );
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'mmfwc_meta_box_create' );
 		$this->loader->add_action( 'save_post', $plugin_admin, 'mmfwc_save_meta_box' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'mmfwc_options_register_settings' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'mmfwc_register_options_page' );
 
 	}
 
@@ -172,14 +174,14 @@ class Min_Max_For_Woocommerce {
 
 		$plugin_public = new Min_Max_For_Woocommerce_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'mmfwc_enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'mmfwc_enqueue_scripts' );
 		/*Function to manipulate custom minimum and maximum purchase*/
-		$this->loader->add_filter('woocommerce_quantity_input_args',  $plugin_public, 'wc_mmax_quantity_input_args', 10, 2 );
+		$this->loader->add_filter( 'woocommerce_quantity_input_args',  $plugin_public, 'mmfwc_quantity_input_args', 10, 2 );
 		/*Function to check weather the maximum quantity is already existing in the cart*/
-		$this->loader->add_action('woocommerce_add_to_cart',  $plugin_public, 'wc_mmax_custom_add_to_cart',10,2 );
+		$this->loader->add_action( 'woocommerce_add_to_cart',  $plugin_public, 'mmfwc_custom_add_to_cart', 10, 2 );
 		#filter hook to remove extra add to cart button in the shop and category pages
-		$this->loader->add_filter('woocommerce_loop_add_to_cart_link',  $plugin_public, '_wcmmax_add2cart' );
+		$this->loader->add_filter( 'woocommerce_loop_add_to_cart_link',  $plugin_public, 'mmfwc_add_to_cart' );
 
 	}
 
