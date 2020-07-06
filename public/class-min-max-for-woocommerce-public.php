@@ -113,7 +113,7 @@ class Min_Max_For_Woocommerce_Public {
 		$mmaxEnable = get_post_meta( $product, '_mmfwc_prd_opt_enable', true );
 		$minQty     = get_post_meta( $product, '_mmfwc_min', true );
 		$maxQty     = get_post_meta( $product, '_mmfwc_max', true );
-		$cartQty 	= $this->wc_mmax_woo_in_cart( $product ); 
+		$cartQty 	= $this->mmfwc_woo_in_cart( $product ); 
 
 		if( get_option('mmfwc_options_option_name') != NULL && get_option('mmfwc_options_option_name') !='' ) {
 			$maxQTYMsg = get_option('mmfwc_options_option_name');
