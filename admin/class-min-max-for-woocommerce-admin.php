@@ -134,6 +134,66 @@ class Min_Max_For_Woocommerce_Admin {
 		update_post_meta( $post_id, '_mmfwc_max',(int) sanitize_text_field($_POST['_mmfwc_max']) );
 		update_post_meta( $post_id, '_mmfwc_min', (int) sanitize_text_field($_POST['_mmfwc_min']) );
 
+	}
+  
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	array		
+	 * @return 	void
+	*/
+	public function mmfwc_options_register_settings() {
+		add_option( 'mmfwc_options_option_name', 'Settings');
+		register_setting( 'mmfwc_options_group', 'mmfwc_options_option_name', 'mmfwc_options_callback' );
+	}
+ 
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	array		
+	 * @return 	void
+	*/	
+ 	public function mmfwc_register_options_page() {
+   		add_options_page('Minimum & Maximum Quantity Settings', 'Minimum & Maximum Quantity', 'manage_options', '_mmfwc_', [ $this, 'mmfwc_options_page' ] );
+ 	}
+ 
+	/**
+	 * 
+	 * 
+	 * @since   1.0.0
+	 * @params 	array		
+	 * @return 	void
+	*/	 
+	public function mmfwc_options_page() {
+		?>
+		<div>
+			<h2>
+				<?php esc_html_e( 'Minimum & Maximum Quantity Settings', 'min-max-for-woocommerce' ); ?>
+			</h2>
+			<form method="post" action="options.php">
+				<?php settings_fields( 'mmfwc_options_group' ); ?>				
+				<table>
+					<tr valign="top">
+						<th scope="row">
+							<label for="mmfwc_options_option_name">
+								<?php esc_html_e( 'Alert message for maximum Quantity limit', 'min-max-for-woocommerce' ); ?>
+							</label>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<textarea cols="60" rows="5" id="mmfwc_options_option_name" name="mmfwc_options_option_name" >
+								<?php echo get_option( 'mmfwc_options_option_name' ); ?>
+							</textarea>
+						</td>
+					</tr>
+				</table>
+				<?php  submit_button(); ?>
+			</form>
+		</div>
+		<?php
 	}	
 
 }
