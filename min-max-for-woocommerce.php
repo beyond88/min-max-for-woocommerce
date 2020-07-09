@@ -49,11 +49,11 @@ define( 'MMFWC_PLUGIN_NAME', 'Min and Max for WooCommerce' );
 /**
  * Min and Max for WooCommerce Start.
  *
- * @since 2.0.0
+ * @since 1.0.0
  */
-class Min_Max_For_Woocommerce_Start {	
+class Min_Max_For_Woocommerce_Launch {	
 
-	/** @var \Min_Max_For_Woocommerce_Start single instance of this class */
+	/** @var \Min_Max_For_Woocommerce_Launch single instance of this class */
 	private static $instance;
 
 	/** @var array the admin notices to add */
@@ -62,7 +62,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Loads Min and Max for WooCommerce Start.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	protected function __construct() {
 
@@ -82,7 +82,7 @@ class Min_Max_For_Woocommerce_Start {
 
 	/**
 	 *
-	 * @since    2.0.0
+	 * @since    1.0.0
 	 */
     public function mmfwc_plugin_action_links( $links ) {		
 		$links[] = '<a href="https://www.thewpnext.com/docs/">' . __( 'Docs', 'min-max-for-woocommerce' ) . '</a>';
@@ -95,21 +95,21 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Cloning instances is forbidden due to singleton pattern.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function __clone() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '2.0.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot clone instances of %s.', get_class( $this ) ), '1.0.0' );
 	}
 
 	/**
 	 * Unserializing instances is forbidden due to singleton pattern.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function __wakeup() {
 
-		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '2.0.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( 'You cannot unserialize instances of %s.', get_class( $this ) ), '1.0.0' );
 	}
 
 	/**
@@ -117,7 +117,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function mmfwc_init_plugin() {
 
@@ -139,7 +139,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function mmfwc_activation_check() {
 
@@ -164,7 +164,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function mmfwc_check_environment() {
 
@@ -181,7 +181,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function mmfwc_add_plugin_notices() {
 
@@ -210,7 +210,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Determines if the required plugins are compatible.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
@@ -222,7 +222,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Determines if the WordPress compatible.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
@@ -234,7 +234,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Determines if the WooCommerce compatible.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
@@ -246,7 +246,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Deactivates the plugin.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	private function mmfwc_deactivate_plugin() {
 
@@ -262,7 +262,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * @internal
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @param string $slug the slug for the notice
 	 * @param string $class the css class for the notice
@@ -279,7 +279,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Displays admin notices.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function mmfwc_admin_notices() {
 
@@ -299,7 +299,7 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * Override this method to add checks for more than just the PHP version.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @return bool
 	 */
@@ -311,7 +311,7 @@ class Min_Max_For_Woocommerce_Start {
 	/**
 	 * Gets the message for display when the environment is incompatible with this plugin.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
 	 * @return string
 	 */
@@ -325,9 +325,9 @@ class Min_Max_For_Woocommerce_Start {
 	 *
 	 * Ensures only one instance can be loaded.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 *
-	 * @return \Min_Max_For_Woocommerce_Start
+	 * @return \Min_Max_For_Woocommerce_Launch
 	 */
 	public static function instance() {
 
@@ -343,4 +343,4 @@ class Min_Max_For_Woocommerce_Start {
 }
 
 // fire it up!
-Min_Max_For_Woocommerce_Start::instance();
+Min_Max_For_Woocommerce_Launch::instance();
