@@ -7,7 +7,7 @@
  * @since      1.0.0
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/admin
- * @author     TheWPNext <thewpnext@gmail.com>
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
  */
 class Min_Max_For_Woocommerce_Admin {
 
@@ -167,7 +167,7 @@ class Min_Max_For_Woocommerce_Admin {
 					<tr valign="top">
 						<th scope="row">
 							<label for="mmfwc_options_option_name">
-								<?php esc_html_e( 'Alert message for maximum Quantity limit', 'min-max-for-woocommerce' ); ?>
+								<?php esc_html_e( 'Message for maximum Quantity limit', 'min-max-for-woocommerce' ); ?>
 							</label>
 						</th>
 					</tr>

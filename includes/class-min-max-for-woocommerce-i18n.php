@@ -11,7 +11,7 @@
  *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/includes
- * @author     TheWPNext <thewpnext@gmail.com>
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
  */
 class Min_Max_For_Woocommerce_i18n {
 
