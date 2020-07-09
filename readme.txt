@@ -17,60 +17,7 @@ Handle minimum and maximum quantity with the easiest way
 
 = MIN AND MAX FOR WOOCOMMERCE PLUGIN =
 
-The easy way to handle free product sample. [Free Product Sample for WooCommerce](https://www.thewpnext.com/downloads/free-product-sample-for-woocommerce) does one thing, and it does it well. It lets you order product as a product sample.
-
-
-## 🛍️ Supercharge Your business with the Free Proudct Sample for WooCommerce.
-
-Capture compelling and real customer by giving capability to order a product sample. 
-
-**🔥 Free Sample Order Button:** Free Sample button will display beside Add to Cart button. Capability to order a product as a sample.
-
-**🔥 Button for Simple and Variable Product both:** Give access to order variable product as a sample.
-
-
-== Pro Features ==
-
-**🔥 Sample Price:** Allows you to set sample price for a sample product.
-
-**🔥 Shop and Archive Page:** It allows you to set the button for the shop and archive pages.
-
-**🔥 Disable Capability for Some Products:** It allows you to disable the button for some products. 
-
-**🔥 Shipping & Tax class:** It allows you to set shipping & tax class for the sample products.
-
-**🔥 Manage Custom Stock:** It allows you to manage custom stock for the sample products. So this will not messup with the original products stock.
-
-
-== Pro Features (UPCOMING) ==
-
-**🎉 Conditonal Price:** Allows you to set conditional price for the sample products.
-
-**🎉 User role based Price:** Allows you to set user role based sample price.
-
-
-## 🚀 Backed By A Trusted Team ##
-
-This Free Product Sample for WooCommerce plugin is brought to you by the team behind [TheWPNext](https://thewpnext.com/), a dedicated platform for WordPress, trusted by lots of happy users.
-
-## 👨‍💻 DOCUMENTATION AND SUPPORT ##
-
-- For documentation and tutorials go to our [Documentation](https://thewpnext.com/docs/)
-- If you have any more questions, visit our support on the Plugin’s [Forum](https://thewpnext.com/support/)
-- For more information about features, FAQs and documentation, check out our website at [TheWPNext](https://thewpnext.com/)
-
-## 💙 Loved This Plugin’s? ##
-
-- Rate us on WordPress
-
-
-== Screenshots ==
-
-1.Free Product Sample Setting Menu.
-2.Display Order Free Sample button in the Product Detail Page.
-3.Added Product as Free Sample in the Cart Page.
-4.Display in the Checkout Page.
-5.Display in the Order Receive Page.
+Min and Max for WooCommerce is the coolest WooCommerce extension to create coolest deals with product quantity.
 
 == Frequently Asked Questions ==
 

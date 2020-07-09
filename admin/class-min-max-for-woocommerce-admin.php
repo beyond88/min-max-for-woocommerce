@@ -5,17 +5,6 @@
  *
  * @link       https://www.thewpnext.com
  * @since      1.0.0
- *
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/admin
  * @author     TheWPNext <thewpnext@gmail.com>
@@ -75,7 +64,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
 
 	/**
-	 *
+	 * Add metabox in the edit product page
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -86,7 +75,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
 	
 	/**
-	 *
+	 * Metabox HTML
 	 * 
 	 * @since   1.0.0
 	 * @params 	object		
@@ -118,7 +107,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
 
 	/**
-	 * 
+	 * Metabox data save
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -137,7 +126,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
   
 	/**
-	 * 
+	 * Register option page in the setting menu
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -149,7 +138,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
  
 	/**
-	 * 
+	 * Add option page
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -160,7 +149,7 @@ class Min_Max_For_Woocommerce_Admin {
  	}
  
 	/**
-	 * 
+	 * Setting page HTML
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
