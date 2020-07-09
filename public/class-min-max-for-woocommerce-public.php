@@ -8,16 +8,6 @@
  *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/public
- */
-
-/**
- * The public-facing functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the public-facing stylesheet and JavaScript.
- *
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/public
  * @author     TheWPNext <thewpnext@gmail.com>
  */
 class Min_Max_For_Woocommerce_Public {
@@ -117,7 +107,7 @@ class Min_Max_For_Woocommerce_Public {
 
 		if( get_option('mmfwc_options_option_name') != NULL && get_option('mmfwc_options_option_name') !='' ) {
 			$maxQTYMsg = get_option('mmfwc_options_option_name');
-		}else {
+		} else {
 			$maxQTYMsg = esc_html__( 'You have already added the maximum Quantity for the product for the current purchase', 'min-max-for-woocommerce' );
 		}
 

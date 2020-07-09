@@ -11,20 +11,6 @@
  *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/includes
- */
-
-/**
- * The core plugin class.
- *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
- *
- * Also maintains the unique identifier of this plugin as well as the current
- * version of the plugin.
- *
- * @since      1.0.0
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/includes
  * @author     TheWPNext <thewpnext@gmail.com>
  */
 class Min_Max_For_Woocommerce {
@@ -176,11 +162,8 @@ class Min_Max_For_Woocommerce {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'mmfwc_enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'mmfwc_enqueue_scripts' );
-		/*Function to manipulate custom minimum and maximum purchase*/
 		$this->loader->add_filter( 'woocommerce_quantity_input_args',  $plugin_public, 'mmfwc_quantity_input_args', 10, 2 );
-		/*Function to check weather the maximum quantity is already existing in the cart*/
 		$this->loader->add_action( 'woocommerce_add_to_cart',  $plugin_public, 'mmfwc_custom_add_to_cart', 10, 2 );
-		#filter hook to remove extra add to cart button in the shop and category pages
 		$this->loader->add_filter( 'woocommerce_loop_add_to_cart_link',  $plugin_public, 'mmfwc_add_to_cart' );
 
 	}
