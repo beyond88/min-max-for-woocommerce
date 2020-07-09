@@ -12,7 +12,7 @@
  * Description:       Handle minimum and maximum quantity with the easiest way
  * Version:           1.0.0
  * Author:            TheWPNext
- * Author URI:        https://www.thewpnext.com
+ * Author URI:        https://profiles.wordpress.org/hossain88/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       min-max-for-woocommerce
@@ -76,21 +76,8 @@ class Min_Max_For_Woocommerce_Launch {
 		// if the environment check fails, initialize the plugin
 		if ( $this->mmfwc_is_environment_compatible() ) {
 			add_action( 'plugins_loaded', array( $this, 'mmfwc_init_plugin' ) );
-			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'mmfwc_plugin_action_links' ) );
 		}
-	}
-
-	/**
-	 *
-	 * @since    1.0.0
-	 */
-    public function mmfwc_plugin_action_links( $links ) {		
-		$links[] = '<a href="https://www.thewpnext.com/docs/">' . __( 'Docs', 'min-max-for-woocommerce' ) . '</a>';
-		if( !class_exists('Min_Max_For_Woocommerce_Pro') ) {
-			$links[] = '<a href="https://www.thewpnext.com/" style="color: #d30c5c;font-weight: bold;">' . __( 'Get Pro', 'min-max-for-woocommerce' ) . '</a>';
-		}
-        return $links;
-    }	
+	}	
 
 	/**
 	 * Cloning instances is forbidden due to singleton pattern.
