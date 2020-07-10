@@ -1,4 +1,4 @@
-=== Free Product Sample for WooCommerce ===
+=== Min and Max for WooCommerce ===
 Contributors: thewpnext, hossain88
 Donate Link: http://thewpnext.com
 Tags: limit, cost, limit quantity, woocommerce quantity, minimum quantity, maximum quantity
