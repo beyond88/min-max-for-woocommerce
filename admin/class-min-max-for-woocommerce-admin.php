@@ -5,20 +5,9 @@
  *
  * @link       https://www.thewpnext.com
  * @since      1.0.0
- *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/admin
- */
-
-/**
- * The admin-specific functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/admin
- * @author     TheWPNext <thewpnext@gmail.com>
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
  */
 class Min_Max_For_Woocommerce_Admin {
 
@@ -75,18 +64,18 @@ class Min_Max_For_Woocommerce_Admin {
 	}
 
 	/**
-	 *
+	 * Add metabox in the edit product page
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
 	 * @return 	void
 	*/
 	public function mmfwc_meta_box_create() {
-		add_meta_box('mmfwc_enable', __('Min Max Quantity', 'min-max-for-woocommerce'), [$this, 'mmfwc_meta_box'], 'product', 'side');
+		add_meta_box('mmfwc_enable', __('Min Max Quantity', 'min-max-for-woocommerce'), [ $this, 'mmfwc_meta_box' ], 'product', 'side');
 	}
 	
 	/**
-	 *
+	 * Metabox HTML
 	 * 
 	 * @since   1.0.0
 	 * @params 	object		
@@ -102,7 +91,7 @@ class Min_Max_For_Woocommerce_Admin {
 		echo '<p>';
 			echo '<label for="_mmfwc_prd_opt_enable" style="float:left; width:50px;">' . __('Enable', 'min-max-for-woocommerce') . '</label>';
 			echo '<input type="hidden" name="_mmfwc_prd_opt_enable" value="0" />';
-			echo '<input type="checkbox" id="_mmfwc_prd_opt_enable" class="checkbox" name="_mmfwc_prd_opt_enable" value="1" ' . checked(get_post_meta($post->ID, '_mmfwc_prd_opt_enable', true), 1, false) . ' />';
+			echo '<input type="checkbox" id="_mmfwc_prd_opt_enable" class="checkbox" name="_mmfwc_prd_opt_enable" value="1" ' . checked( get_post_meta( $post->ID, '_mmfwc_prd_opt_enable', true ), 1, false ) . ' />';
 		echo '</p>';
 
 		echo '<p>';
@@ -118,7 +107,7 @@ class Min_Max_For_Woocommerce_Admin {
 	}
 
 	/**
-	 * 
+	 * Metabox data save
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -128,39 +117,39 @@ class Min_Max_For_Woocommerce_Admin {
 
 		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
 			return;
-		if ( ! isset( $_POST['_mmfwc_prd_opt_enable'] ) || ! wp_verify_nonce( sanitize_text_field($_POST['mmfwc_cst_prd_nonce']), 'mmfwc_cst_prd_nonce' ) )
+		if ( ! isset( $_POST['_mmfwc_prd_opt_enable'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['mmfwc_cst_prd_nonce'] ), 'mmfwc_cst_prd_nonce' ) )
 			return;
-		update_post_meta( $post_id, '_mmfwc_prd_opt_enable', (int) sanitize_text_field($_POST['_mmfwc_prd_opt_enable']) );
-		update_post_meta( $post_id, '_mmfwc_max',(int) sanitize_text_field($_POST['_mmfwc_max']) );
-		update_post_meta( $post_id, '_mmfwc_min', (int) sanitize_text_field($_POST['_mmfwc_min']) );
+		update_post_meta( $post_id, '_mmfwc_prd_opt_enable', (int) sanitize_text_field( $_POST['_mmfwc_prd_opt_enable'] ) );
+		update_post_meta( $post_id, '_mmfwc_max',(int) sanitize_text_field( $_POST['_mmfwc_max'] ) );
+		update_post_meta( $post_id, '_mmfwc_min', (int) sanitize_text_field( $_POST['_mmfwc_min'] ) );
 
 	}
   
 	/**
-	 * 
+	 * Register option page in the setting menu
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
 	 * @return 	void
 	*/
 	public function mmfwc_options_register_settings() {
-		add_option( 'mmfwc_options_option_name', 'Settings');
+		add_option( 'mmfwc_options_option_name', 'Settings' );
 		register_setting( 'mmfwc_options_group', 'mmfwc_options_option_name', 'mmfwc_options_callback' );
 	}
  
 	/**
-	 * 
+	 * Add option page
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
 	 * @return 	void
 	*/	
  	public function mmfwc_register_options_page() {
-   		add_options_page('Minimum & Maximum Quantity Settings', 'Minimum & Maximum Quantity', 'manage_options', '_mmfwc_', [ $this, 'mmfwc_options_page' ] );
+   		add_options_page( 'Min & Max Quantity Settings', 'Min & Max Quantity', 'manage_options', '_mmfwc_', [ $this, 'mmfwc_options_page' ] );
  	}
  
 	/**
-	 * 
+	 * Setting page HTML
 	 * 
 	 * @since   1.0.0
 	 * @params 	array		
@@ -170,7 +159,7 @@ class Min_Max_For_Woocommerce_Admin {
 		?>
 		<div>
 			<h2>
-				<?php esc_html_e( 'Minimum & Maximum Quantity Settings', 'min-max-for-woocommerce' ); ?>
+				<?php esc_html_e( 'Min & Max Quantity Settings', 'min-max-for-woocommerce' ); ?>
 			</h2>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'mmfwc_options_group' ); ?>				
@@ -178,7 +167,7 @@ class Min_Max_For_Woocommerce_Admin {
 					<tr valign="top">
 						<th scope="row">
 							<label for="mmfwc_options_option_name">
-								<?php esc_html_e( 'Alert message for maximum Quantity limit', 'min-max-for-woocommerce' ); ?>
+								<?php esc_html_e( 'Message for maximum Quantity limit', 'min-max-for-woocommerce' ); ?>
 							</label>
 						</th>
 					</tr>

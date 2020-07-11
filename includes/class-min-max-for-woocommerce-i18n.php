@@ -11,21 +11,9 @@
  *
  * @package    Min_Max_For_Woocommerce
  * @subpackage Min_Max_For_Woocommerce/includes
- */
-
-/**
- * Define the internationalization functionality.
- *
- * Loads and defines the internationalization files for this plugin
- * so that it is ready for translation.
- *
- * @since      1.0.0
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/includes
- * @author     TheWPNext <thewpnext@gmail.com>
+ * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
  */
 class Min_Max_For_Woocommerce_i18n {
-
 
 	/**
 	 * Load the plugin text domain for translation.
@@ -41,7 +29,5 @@ class Min_Max_For_Woocommerce_i18n {
 		);
 
 	}
-
-
-
+	
 }
