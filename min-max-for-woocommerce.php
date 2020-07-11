@@ -11,8 +11,8 @@
  * Plugin URI:        https://wordpress.org/plugins/min-max-for-woocommerce
  * Description:       Handle minimum and maximum quantity with the easiest way.
  * Version:           1.0.0
- * Author:            Mohiuddin Abdul Kader
- * Author URI:        https://profiles.wordpress.org/hossain88/
+ * Author:            TheWPNext
+ * Author URI:        https://www.thewpnext.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       min-max-for-woocommerce
