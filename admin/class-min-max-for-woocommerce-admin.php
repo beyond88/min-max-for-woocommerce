@@ -96,12 +96,12 @@ class Min_Max_For_Woocommerce_Admin {
 
 		echo '<p>';
 			echo '<label for="_mmfwc_min">' . __('Min Quantity', 'min-max-for-woocommerce') . '</label>';
-			echo '<input type="number" id="_mmfwc_min" class="short" name="_mmfwc_min" value="' . $min . '" />';
+			echo '<input type="number" id="_mmfwc_min" class="short" min="0" step="1" name="_mmfwc_min" value="' . $min . '" />';
 		echo '</p>';
 
 		echo '<p>';
 			echo '<label for="_mmfwc_max">' . __('Max Quantity', 'min-max-for-woocommerce') . '</label>';
-			echo '<input type="number" id="_mmfwc_max" class="short" name="_mmfwc_max" value="' . $max . '" />';
+			echo '<input type="number" id="_mmfwc_max" class="short" step="1" name="_mmfwc_max" value="' . $max . '" />';
 		echo '</p>';
 		
 	}
