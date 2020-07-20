@@ -146,6 +146,11 @@ class Min_Max_For_Woocommerce {
 		$this->loader->add_action( 'save_post', $plugin_admin, 'mmfwc_save_meta_box' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'mmfwc_options_register_settings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'mmfwc_register_options_page' );
+		$this->loader->add_filter( 'woocommerce_inventory_settings', $plugin_admin, 'mmfwc_default_quantity_settings' );
+		$this->loader->add_action( 'product_cat_add_form_fields',  $plugin_admin, 'mmfwc_taxonomy_add_new_meta_field', 10, 2 );
+		$this->loader->add_action( 'product_cat_edit_form_fields', $plugin_admin, 'mmfwc_taxonomy_edit_meta_field', 10, 2 );
+		$this->loader->add_action( 'edited_product_cat', $plugin_admin, 'mmfwc_save_taxonomy_custom_meta', 10, 2 );
+		$this->loader->add_action( 'create_product_cat', $plugin_admin, 'mmfwc_save_taxonomy_custom_meta', 10, 2 );			
 
 	}
 

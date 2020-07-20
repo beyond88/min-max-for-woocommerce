@@ -73,6 +73,159 @@ class Min_Max_For_Woocommerce_Admin {
 	public function mmfwc_meta_box_create() {
 		add_meta_box('mmfwc_enable', __('Min Max Quantity', 'min-max-for-woocommerce'), [ $this, 'mmfwc_meta_box' ], 'product', 'side');
 	}
+
+	/**
+	 * Register the min max quantity settings for the products.
+	 *
+	 * @since   1.0.0
+	 * @params 	array		
+	 * @return 	void 
+	*/	
+	public function mmfwc_default_quantity_settings( $settings ) {
+
+		$new_settings = array();
+		foreach ( $settings as &$setting ) {
+
+			$new_settings[] = $setting;
+			if ( 'woocommerce_manage_stock' === $setting['id'] ) {
+				$new_settings[] = array(
+					'title'             => __( 'Global minimum quantity', 'min-max-for-woocommerce' ),
+					'desc'              => __( 'Choose a minimum quantity for all your products. You can override this for individual categories/products', 'min-max-for-woocommerce' ),
+					'id'                => 'woocommerce_min_quantity',
+					'type'              => 'number',
+					'custom_attributes' => array(
+						'min'  => 0,
+						'step' => 1,
+					),
+					'css'               => 'width: 80px;',
+					'default'           => '1',
+					'autoload'          => false,
+					'class'             => 'manage_stock_field',
+				); 
+				$new_settings[] = array(
+					'title'             => __( 'Global maximum quantity', 'min-max-for-woocommerce' ),
+					'desc'              => __( 'Choose a maximum quantity for all your products. You can override this for individual categories/products', 'min-max-for-woocommerce' ),
+					'id'                => 'woocommerce_max_quantity',
+					'type'              => 'number',
+					'custom_attributes' => array(
+						'min'  => 0,
+						'step' => 1,
+					),
+					'css'               => 'width: 80px;',
+					'default'           => '1',
+					'autoload'          => false,
+					'class'             => 'manage_stock_field',
+				); 				
+			}
+
+		}
+
+		return $new_settings; 	
+	}
+
+	/**
+	 * Add product category meta.
+	 *
+	 * @since   1.0.0
+	 * @params 	none		
+	 * @return 	void 
+	*/	
+	public function mmfwc_taxonomy_add_new_meta_field() {
+
+		?>
+
+		<div class="form-field">
+			<label for="term_meta[mmfwc_min_quantity]">
+				<?php _e('Minimum quantity', 'min-max-for-woocommerce'); ?>
+			</label>
+			<input type="number" name="term_meta[mmfwc_min_quantity]" id="term_meta[mmfwc_min_quantity]" min="0" step="1">
+			<p class="description">
+				<?php _e('Enter minimum quantity', 'min-max-for-woocommerce'); ?>
+			</p>
+		</div>
+
+		<div class="form-field">
+			<label for="term_meta[mmfwc_max_quantity]">
+				<?php _e('Minimum quantity', 'min-max-for-woocommerce'); ?>
+			</label>
+			<input type="number" name="term_meta[mmfwc_max_quantity]" id="term_meta[mmfwc_max_quantity]" min="0" step="1">
+			<p class="description">
+				<?php _e('Enter maximum quantity', 'min-max-for-woocommerce'); ?>
+			</p>
+		</div>		
+
+		<?php
+
+	}
+
+	/**
+	 * Edit product category meta.
+	 *
+	 * @since   1.0.0
+	 * @params 	object		
+	 * @return 	void 
+	*/
+	public function mmfwc_taxonomy_edit_meta_field( $term ) {
+
+		$term_id 	= $term->term_id;
+		$term_meta  = get_option( "taxonomy_" . $term_id );
+		?>
+
+		<tr class="form-field">
+			<th scope="row" valign="top">
+				<label for="term_meta[mmfwc_min_quantity]">
+					<?php _e('Minimum quantity', 'min-max-for-woocommerce'); ?>
+				</label>
+			</th>
+			<td>
+				<input type="number" name="term_meta[mmfwc_min_quantity]" id="term_meta[mmfwc_min_quantity]" min="0" step="1" value="<?php echo esc_attr($term_meta['mmfwc_min_quantity']) ? esc_attr($term_meta['mmfwc_min_quantity']) : ''; ?>">
+				<p class="description">
+					<?php _e('Enter default quantity', 'min-max-for-woocommerce'); ?>
+				</p>
+			</td>			
+		</tr>
+
+		<tr class="form-field">
+			<th scope="row" valign="top">
+				<label for="term_meta[mmfwc_max_quantity]">
+					<?php _e('Maximum quantity', 'min-max-for-woocommerce'); ?>
+				</label>
+			</th>
+			<td>
+				<input type="number" name="term_meta[mmfwc_max_quantity]" id="term_meta[mmfwc_max_quantity]" min="0" step="1" value="<?php echo esc_attr($term_meta['mmfwc_max_quantity']) ? esc_attr($term_meta['mmfwc_max_quantity']) : ''; ?>">
+				<p class="description">
+					<?php _e('Enter maximum quantity', 'min-max-for-woocommerce'); ?>
+				</p>
+			</td>			
+		</tr>		
+
+		<?php
+	}
+
+	/**
+	 * Save product category meta value.
+	 *
+	 * @since   1.0.0
+	 * @params 	int, POST		
+	 * @return 	void 
+	*/
+	public function mmfwc_save_taxonomy_custom_meta( $term_id ) {
+		
+		if ( isset($_POST['term_meta']) ) {
+			
+			$term_meta = get_option("taxonomy_" . $term_id);
+			$cat_keys = array_keys($_POST['term_meta']);
+			
+			foreach ($cat_keys as $key) {
+				if ( isset( $_POST['term_meta'][$key] ) ) {
+					$term_meta[$key] = sanitize_text_field( $_POST['term_meta'][$key] );
+				}
+			}
+			
+			update_option("taxonomy_" . $term_id, $term_meta);
+		}
+		
+	}	
 	
 	/**
 	 * Metabox HTML
