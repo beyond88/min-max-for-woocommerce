@@ -3,7 +3,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       https://www.thewpnext.com
+ * @link       https://www.thenextwp.co
  * @since      1.0.0
  *
  * @package    Min_Max_For_Woocommerce
