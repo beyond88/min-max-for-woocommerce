@@ -43,3 +43,6 @@ This section describes how to install the plugin and get it working.
 
 = 1.0.0 =
 Initial version released
+
+= 1.0.1 =
+Test with latest WordPress & WooCommerce version
