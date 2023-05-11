@@ -1,68 +1,27 @@
 <?php
 
-/**
- * The public-facing functionality of the plugin.
- *
- * @link       https://github.com/beyond88
- * @since      1.0.0
- *
- * @package    Min_Max_For_Woocommerce
- * @subpackage Min_Max_For_Woocommerce/public
- * @author     Mohiuddin Abdul Kader <muhin.cse.diu@gmail.com>
- */
-class Min_Max_For_Woocommerce_Public {
+namespace MinMaxWoocommerce\Frontend;
+use MinMaxWoocommerce\Traits\Singleton;
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
+class Storefront 
+{
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
+    use Singleton;
+    /* Bootstraps the class and hooks required actions & filters.
+    *
+    * @since   2.0.0
+    * @params 	none		
+    * @return 	void
+    */
+    public function init() {
+		
+		add_filter( 'woocommerce_quantity_input_args',  [ $this, 'mmfwc_quantity_input_args' ], 10, 2 );
+		add_action( 'woocommerce_add_to_cart',  [ $this, 'mmfwc_custom_add_to_cart' ], 10, 2 );
+		add_filter( 'woocommerce_loop_add_to_cart_link',  [ $this, 'mmfwc_add_to_cart' ] );
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
-	public function __construct( $plugin_name, $version ) {
+    }
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
-
-	}
-
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function mmfwc_enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/min-max-for-woocommerce-public.css', array(), $this->version, 'all' );
-	}
-
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function mmfwc_enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/min-max-for-woocommerce-public.js', array( 'jquery' ), $this->version, false );
-	}
-
-	/**
+    /**
 	 * 
 	 * 
 	 * @since   1.0.0
@@ -168,22 +127,22 @@ class Min_Max_For_Woocommerce_Public {
 
 		$ajax_cart_en = 'yes' === get_option( 'woocommerce_enable_ajax_add_to_cart' );
 		
+		$ajax_class = '';
 		if ($ajax_cart_en &&  $mmaxEnable == 0) { 
 			$ajax_class = 'ajax_add_to_cart'; 
 		}
 		
 		$link = sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="button %s product_type_%s %s">%s</a>',
-				esc_url( $product->add_to_cart_url().$qtylink ),
-				esc_attr( $product->id ),
-				esc_attr( $product->get_sku() ),
-				esc_attr( isset( $minQty ) ? $minQty : 1 ),
-				$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-				esc_attr( $product->product_type ),
-				esc_attr( $ajax_class ),
-				esc_html( $product->add_to_cart_text() )
-			);
+			esc_url( $product->add_to_cart_url().$qtylink ),
+			esc_attr( $product->id ),
+			esc_attr( $product->get_sku() ),
+			esc_attr( isset( $minQty ) ? $minQty : 1 ),
+			$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+			esc_attr( $product->product_type ),
+			esc_attr( $ajax_class ),
+			esc_html( $product->add_to_cart_text() )
+		);
 		return $link;
 		
-	}	
-
+	}
 }
