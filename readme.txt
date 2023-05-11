@@ -15,15 +15,17 @@ Effortlessly handle minimum and maximum quantity limits with ease using the powe
 
 == Description ==
 
+Unlock the coolest deals and promotions by utilizing the Min and Max for WooCommerce extension. With its ability to set minimum and maximum product quantities, you can create enticing offers that captivate your customers. Whether it's limited-time discounts, bulk purchase incentives, or exclusive bundle deals, this extension empowers you to design irresistible offers that drive sales and leave a lasting impression. Take advantage of the Min and Max for WooCommerce extension and unleash your creativity to craft the coolest deals that keep customers coming back for more.
+
 = MIN AND MAX FOR WOOCOMMERCE PLUGIN =
 
 👉 Official Demo Link: [Official Demo](https://github.com/beyond88/samply)
 
-= POWERED BY WooCommerce =
-
-Unlock the coolest deals and promotions by utilizing the Min and Max for WooCommerce extension. With its ability to set minimum and maximum product quantities, you can create enticing offers that captivate your customers. Whether it's limited-time discounts, bulk purchase incentives, or exclusive bundle deals, this extension empowers you to design irresistible offers that drive sales and leave a lasting impression. Take advantage of the Min and Max for WooCommerce extension and unleash your creativity to craft the coolest deals that keep customers coming back for more.
-
 ## 🛍️ Supercharge Your business with the plugin.
+
+Capture compelling and real customer by giving capability to order product.
+
+**🔥 Individual option for every single product.
 
 ## 🚀 Backed By A Trusted Team ##
 
