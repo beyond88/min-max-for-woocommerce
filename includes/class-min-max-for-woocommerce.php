@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.thenextwp.co
+ * @link       https://github.com/beyond88
  * @since      1.0.0
  *
  * @package    Min_Max_For_Woocommerce
@@ -56,7 +56,7 @@ class Min_Max_For_Woocommerce {
 		if ( defined( 'MMFWC_VERSION' ) ) {
 			$this->version = MMFWC_VERSION;
 		} else {
-			$this->version = '1.0.1';
+			$this->version = '1.0.2';
 		}
 		$this->plugin_name = 'min-max-for-woocommerce';
 

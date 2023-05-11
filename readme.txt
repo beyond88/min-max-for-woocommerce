@@ -1,17 +1,17 @@
 === Min and Max for WooCommerce ===
 Contributors: hossain88
-Donate Link: http://thenextwp.co
+Donate Link: https://github.com/beyond88
 Tags: limit, cost, limit quantity, woocommerce quantity, minimum quantity, maximum quantity
 Requires at least: 4.4
-Tested up to: 5.6
+Tested up to: 6.0.1
 WC requires at least: 3.1
-WC tested up to: 4.1.0
+WC tested up to: 6.7.0
 Requires PHP: 5.6
-Stable tag: 3.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Handle minimum and maximum quantity with the easiest way.
+Handle minimum and maximum quantity easily.
 
 == Description ==
 
@@ -44,5 +44,5 @@ This section describes how to install the plugin and get it working.
 = 1.0.0 =
 Initial version released
 
-= 1.0.1 =
+= 1.0.2 =
 Test with latest WordPress & WooCommerce version

@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://www.thenextwp.co
+ * @link       https://github.com/beyond88
  * @since      1.0.0
  *
  * @package    Min_Max_For_Woocommerce

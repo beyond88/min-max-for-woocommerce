@@ -2,15 +2,15 @@
 
 /**
  *
- * @link              https://www.thenextwp.co
+ * @link              https://github.com/beyond88
  * @since             1.0.0
  * @package           Min_Max_For_Woocommerce
  *
  * @wordpress-plugin
  * Plugin Name:       Min and Max for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/min-max-for-woocommerce
- * Description:       Handle minimum and maximum quantity with the easiest way.
- * Version:           1.0.1
+ * Description:       Handle minimum and maximum quantity easily.
+ * Version:           1.0.2
  * Author:            Mohiuddin Abdul Kader
  * Author URI:        https://profiles.wordpress.org/hossain88/
  * License:           GPL-2.0+
@@ -19,10 +19,10 @@
  * Domain Path:       /languages
  * Requires PHP:      5.6
  * Requires at least: 4.4
- * Tested up to:      5.6
+ * Tested up to:      6.0.1
  *
  * WC requires at least: 3.1
- * WC tested up to:   4.9.1 
+ * WC tested up to:   6.7.0 
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'MMFWC_VERSION', '1.0.1' );
+define( 'MMFWC_VERSION', '1.0.2' );
 define( 'MMFWC_MINIMUM_PHP_VERSION', '5.6.0' );
 define( 'MMFWC_MINIMUM_WP_VERSION', '4.4' );
 define( 'MMFWC_MINIMUM_WC_VERSION', '3.0.9' );
