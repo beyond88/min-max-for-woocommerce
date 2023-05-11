@@ -1,6 +1,7 @@
 <?php
 
 namespace MinMaxWoocommerce;
+use MinMaxWoocommerce\Admin\Settings;
 
 /**
  * The admin class
@@ -13,8 +14,7 @@ class Admin
      */
     function __construct() 
     {
-
-        new Admin\Settings();
+        Settings::instance()->init();
         new Admin\PluginMeta();
     }
 

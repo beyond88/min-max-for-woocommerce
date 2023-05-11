@@ -25,8 +25,7 @@ class PluginMeta
     */
     public function plugin_action_links( $links ) 
     {
-
-        $links[] = '<a href="' . admin_url( 'admin.php?page=samply#general_settings' ) . '">' . __( 'Settings', 'min-max-for-woocommerce' ) . '</a>';
+        
 		$links[] = '<a href="https://github.com/beyond88/min-max-for-woocommerce/wiki">' . __( 'Docs', 'min-max-for-woocommerce' ) . '</a>';
         return $links;
 
