@@ -1,0 +1,19 @@
+{
+  "name": "kaderdev/min-max-woocommerce",
+  "autoload": {
+    "psr-4": {
+      "MinMaxWoocommerce\\": "includes/"
+    },
+    "files": [
+      "includes/functions.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "beyond88",
+      "email": "muhin.cse.diu@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
