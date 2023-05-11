@@ -10,8 +10,7 @@ use MinMaxWoocommerce\Frontend\Storefront;
 * @param    none
 * @return   object
 */
-class Frontend 
-{
+class Frontend {
 
     /**
     * Initialize the class

@@ -14,8 +14,7 @@ class MinMaxWoocommercei18n
 	*
 	* @since    1.0.0
 	*/
-    public function __construct()
-    {
+    public function __construct() {
         add_action( 'plugins_loaded', [ $this, 'load_plugin_textdomain' ] );
     }
 
@@ -24,8 +23,7 @@ class MinMaxWoocommercei18n
 	*
 	* @since    1.0.0
 	*/
-	public function load_plugin_textdomain() 
-	{
+	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
 			'min-max-for-woocommerce',

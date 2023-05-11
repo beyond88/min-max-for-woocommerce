@@ -5,8 +5,7 @@ namespace MinMaxWoocommerce;
 /**
  * API Class
  */
-class API 
-{
+class API {
 
     /**
      * Initialize the class

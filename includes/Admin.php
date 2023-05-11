@@ -6,14 +6,12 @@ use MinMaxWoocommerce\Admin\Settings;
 /**
  * The admin class
  */
-class Admin 
-{
+class Admin {
 
     /**
      * Initialize the class
      */
-    function __construct() 
-    {
+    function __construct() {
         Settings::instance()->init();
         new Admin\PluginMeta();
     }
@@ -23,8 +21,7 @@ class Admin
      *
      * @return void
      */
-    public function dispatch_actions( $main, $licence ) 
-    {
+    public function dispatch_actions( $main, $licence ) {
 
     }
 }

@@ -5,8 +5,7 @@ namespace MinMaxWoocommerce;
 /**
  * Installer class
  */
-class Installer 
-{
+class Installer {
 
     /**
     * Run the installer
@@ -14,8 +13,7 @@ class Installer
     * @param none
     * @return void
     */
-    public function run() 
-    {
+    public function run() {
         $this->add_version();
     }
 
@@ -25,8 +23,7 @@ class Installer
      * @param none
      * @return void
      */
-    public function add_version() 
-    {
+    public function add_version() {
         $installed = get_option( 'mmfwc_installed' );
 
         if ( ! $installed ) {

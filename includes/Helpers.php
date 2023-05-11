@@ -2,7 +2,6 @@
 
 namespace MinMaxWoocommerce;
 
-class Helpers
-{
+class Helpers {
 
 }
