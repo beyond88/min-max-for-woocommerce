@@ -58,12 +58,12 @@ class Settings
 
 		echo '<p>';
 			echo '<label for="_mmfwc_min">' . __('Min Quantity ', 'min-max-for-woocommerce') . '</label>';
-			echo '<input type="number" id="_mmfwc_min" class="short" name="_mmfwc_min" value="' . $min . '" />';
+			echo '<input type="number" id="_mmfwc_min" class="short" name="_mmfwc_min" value="' . $min . '" min="1" step="1"/>';
 		echo '</p>';
 
 		echo '<p>';
 			echo '<label for="_mmfwc_max">' . __('Max Quantity ', 'min-max-for-woocommerce') . '</label>';
-			echo '<input type="number" id="_mmfwc_max" class="short" name="_mmfwc_max" value="' . $max . '" />';
+			echo '<input type="number" id="_mmfwc_max" class="short" name="_mmfwc_max" value="' . $max . '" min="1" step="1"/>';
 		echo '</p>';
 		
 	}

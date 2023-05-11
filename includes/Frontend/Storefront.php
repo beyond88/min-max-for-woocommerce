@@ -14,11 +14,11 @@ class Storefront
     * @return 	void
     */
     public function init() {
-		add_action( 'wp_enqueue_scripts', [ $this, 'mmfwc_enqueue_styles' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'mmfwc_enqueue_scripts' ] );
+		
 		add_filter( 'woocommerce_quantity_input_args',  [ $this, 'mmfwc_quantity_input_args' ], 10, 2 );
 		add_action( 'woocommerce_add_to_cart',  [ $this, 'mmfwc_custom_add_to_cart' ], 10, 2 );
 		add_filter( 'woocommerce_loop_add_to_cart_link',  [ $this, 'mmfwc_add_to_cart' ] );
+
     }
 
     /**
@@ -127,20 +127,21 @@ class Storefront
 
 		$ajax_cart_en = 'yes' === get_option( 'woocommerce_enable_ajax_add_to_cart' );
 		
+		$ajax_class = '';
 		if ($ajax_cart_en &&  $mmaxEnable == 0) { 
 			$ajax_class = 'ajax_add_to_cart'; 
 		}
 		
 		$link = sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" data-quantity="%s" class="button %s product_type_%s %s">%s</a>',
-				esc_url( $product->add_to_cart_url().$qtylink ),
-				esc_attr( $product->id ),
-				esc_attr( $product->get_sku() ),
-				esc_attr( isset( $minQty ) ? $minQty : 1 ),
-				$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-				esc_attr( $product->product_type ),
-				esc_attr( $ajax_class ),
-				esc_html( $product->add_to_cart_text() )
-			);
+			esc_url( $product->add_to_cart_url().$qtylink ),
+			esc_attr( $product->id ),
+			esc_attr( $product->get_sku() ),
+			esc_attr( isset( $minQty ) ? $minQty : 1 ),
+			$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+			esc_attr( $product->product_type ),
+			esc_attr( $ajax_class ),
+			esc_html( $product->add_to_cart_text() )
+		);
 		return $link;
 		
 	}
