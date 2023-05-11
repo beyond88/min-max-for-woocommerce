@@ -24,7 +24,19 @@ class Settings
 		add_action( 'admin_init', [ $this, 'mmfwc_options_register_settings'] );
 		add_action( 'admin_menu', [ $this, 'mmfwc_register_options_page'] );
     }
+
     /**
+	 * Add metabox in the edit product page
+	 * 
+	 * @since   1.0.0
+	 * @params 	array		
+	 * @return 	void
+	*/
+	public function mmfwc_meta_box_create() {
+		add_meta_box('mmfwc_enable', __('Min Max Quantity', 'min-max-for-woocommerce'), [ $this, 'mmfwc_meta_box' ], 'product', 'side');
+	}
+	
+	/**
 	 * Metabox HTML
 	 * 
 	 * @since   1.0.0
@@ -39,18 +51,18 @@ class Settings
 		wp_nonce_field('mmfwc_cst_prd_nonce', 'mmfwc_cst_prd_nonce');
 		
 		echo '<p>';
-			echo '<label for="_mmfwc_prd_opt_enable" style="float:left; width:50px;">' . __('Enable', 'min-max-for-woocommerce') . '</label>';
+			echo '<label for="_mmfwc_prd_opt_enable" style="float:left; width:50px;">' . __('Enable ', 'min-max-for-woocommerce') . '</label>';
 			echo '<input type="hidden" name="_mmfwc_prd_opt_enable" value="0" />';
 			echo '<input type="checkbox" id="_mmfwc_prd_opt_enable" class="checkbox" name="_mmfwc_prd_opt_enable" value="1" ' . checked( get_post_meta( $post->ID, '_mmfwc_prd_opt_enable', true ), 1, false ) . ' />';
 		echo '</p>';
 
 		echo '<p>';
-			echo '<label for="_mmfwc_min">' . __('Min Quantity', 'min-max-for-woocommerce') . '</label>';
+			echo '<label for="_mmfwc_min">' . __('Min Quantity ', 'min-max-for-woocommerce') . '</label>';
 			echo '<input type="number" id="_mmfwc_min" class="short" name="_mmfwc_min" value="' . $min . '" />';
 		echo '</p>';
 
 		echo '<p>';
-			echo '<label for="_mmfwc_max">' . __('Max Quantity', 'min-max-for-woocommerce') . '</label>';
+			echo '<label for="_mmfwc_max">' . __('Max Quantity ', 'min-max-for-woocommerce') . '</label>';
 			echo '<input type="number" id="_mmfwc_max" class="short" name="_mmfwc_max" value="' . $max . '" />';
 		echo '</p>';
 		
@@ -133,5 +145,6 @@ class Settings
 			</form>
 		</div>
 		<?php
-	}
+	}	
+
 }

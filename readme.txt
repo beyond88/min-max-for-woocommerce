@@ -3,29 +3,44 @@ Contributors: hossain88
 Donate Link: https://github.com/beyond88
 Tags: limit, cost, limit quantity, woocommerce quantity, minimum quantity, maximum quantity
 Requires at least: 4.4
-Tested up to: 6.0.1
+Tested up to: 6.2
 WC requires at least: 3.1
-WC tested up to: 6.7.0
+WC tested up to: 7.6.0
 Requires PHP: 5.6
 Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Handle minimum and maximum quantity easily.
+Effortlessly handle minimum and maximum quantity limits with ease using the powerful features of the WooCommerce Default Quantity plugin.
 
 == Description ==
 
 = MIN AND MAX FOR WOOCOMMERCE PLUGIN =
 
-Min and Max for WooCommerce is the coolest WooCommerce extension to create coolest deals with product quantity.
+👉 Official Demo Link: [Official Demo](https://github.com/beyond88/samply)
+
+= POWERED BY WooCommerce =
+
+Unlock the coolest deals and promotions by utilizing the Min and Max for WooCommerce extension. With its ability to set minimum and maximum product quantities, you can create enticing offers that captivate your customers. Whether it's limited-time discounts, bulk purchase incentives, or exclusive bundle deals, this extension empowers you to design irresistible offers that drive sales and leave a lasting impression. Take advantage of the Min and Max for WooCommerce extension and unleash your creativity to craft the coolest deals that keep customers coming back for more.
+
+## 🛍️ Supercharge Your business with the plugin.
+
+## 🚀 Backed By A Trusted Team ##
+
+This plugin is brought to you by the team behind [Min and Max for WooCommerce](), a dedicated platform for WordPress, trusted by lots of happy users.
+
+## 👨‍💻 DOCUMENTATION AND SUPPORT ##
+
+- 👨‍💻 [Contact Our Support](https://github.com/beyond88/min-max-for-woocommerce/issues)
+- 📜 [Check Documentation](https://github.com/beyond88/min-max-for-woocommerce/wiki)
 
 == Frequently Asked Questions ==
 
-= Does it support category based minimum and maximum purchase limit ? =
+= Does it support category based minimum and maximum purchase limit? =
 
 This feature is available in the premium version.
 
-= Does it support a central place to maintain the minimum and maximum limit for each product ? =
+= Does it support a central place to maintain the minimum and maximum limit for each product? =
 
 This feature is available in the premium version.
 
@@ -46,3 +61,6 @@ Initial version released
 
 = 1.0.2 =
 Test with latest WordPress & WooCommerce version
+
+= 2.0.0 =
+Change pluin struture and test on WordPress latest version
