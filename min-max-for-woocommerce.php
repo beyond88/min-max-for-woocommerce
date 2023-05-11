@@ -66,7 +66,7 @@ class Min_Max_For_Woocommerce_Launch {
 	 */
 	protected function __construct() {
 
-		register_activation_hook( __FILE__, array( $this, 'mmfwc_activation_check' ) );
+		register_activation_hook( __FILE__, array( $this, 'mmfwc_activation_check' ) ); 
 
 		// handle notices and activation errors
 		add_action( 'admin_init',    array( $this, 'mmfwc_check_environment' ) );
